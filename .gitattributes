@@ -1,0 +1,20 @@
+# =====================================================
+# Auto detect text files and perform LF normalization
+# =====================================================
+* text=auto
+
+# =====================================================
+# Always save text files using the LF (Mac/Linux) style  
+# =====================================================
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+
+# ===========================================================
+# Denote all files that are binary and should not be modified
+# ===========================================================
+*.png binary
+*.jpg binary
+*.pdf binary

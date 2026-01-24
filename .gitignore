@@ -1,0 +1,39 @@
+# ============
+# Dependencies
+# ============
+node_modules/
+/dist/
+
+# ====================
+# Playwright Specifics
+# ====================
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# ===========================
+# Local Environment & Secrets
+# ===========================
+.env
+auth.json
+
+# ==============================================================
+# Screenshots/Videos (if not using Playwright's default folders)
+# ==============================================================
+*-snapshots/
+screenshots/
+videos/
+
+# ============
+# System Files
+# ============
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ==========
+# Playwright
+# ==========
+/playwright/.auth/
