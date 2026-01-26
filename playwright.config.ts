@@ -1,3 +1,4 @@
+import { ENV } from "./tests/support/config";
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
@@ -14,24 +15,20 @@ export default defineConfig({
   reporter: "html",
 
   use: {
-    baseURL: "http://localhost:3000",
-    trace: "on-first-retry",
+    baseURL: ENV.URL,
+
+    launchOptions: {
+      slowMo: 500,
+    },
+
+    trace: "retain-on-failure",
+    video: "retain-on-failure",
   },
 
   projects: [
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
-    },
-
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
-    },
-
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
     },
   ],
 });

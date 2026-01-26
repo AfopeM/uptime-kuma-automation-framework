@@ -4,7 +4,8 @@
   "description": "End-to-end QA automation framework for Uptime Kuma, featuring scalable test architecture and automated status-monitoring validation using Typescript/Playwright",
   "main": "index.js",
   "scripts": {
-    "test:env:start": "node ./scripts/start-test.js"
+    "test:env:start": "node scripts/start-test.js",
+    "test:setup": "npm run test:env:start && playwright test tests/auth/setup.spec.ts"
   },
   "keywords": [],
   "author": "Afope Matilukuro",
