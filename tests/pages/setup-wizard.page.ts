@@ -16,7 +16,7 @@ export class SetupWizardPage extends BasePage {
 
   async setupDatabase() {
     // Navigate to setup database URL
-    await this.page.goto(ENV.URL);
+    await this.page.goto("/");
 
     // 1. Click text
     await this.page.getByText("SQLite", { exact: true }).click();
@@ -25,7 +25,11 @@ export class SetupWizardPage extends BasePage {
     await this.page.getByRole("button", { name: "Next" }).click();
 
     // 3. Validate redirect to dashboard
-    await expect(this.page).toHaveURL(/.*setup/, { timeout: 60000 });
+    const createAdminText = await this.page.getByText(
+      "Create your admin account",
+    );
+    await createAdminText.waitFor();
+    await expect(createAdminText).toBeVisible();
 
     return this;
   }
