@@ -1,4 +1,4 @@
-import { ENV } from "./tests/support/config";
+import { ENV } from "./tests/utils/config";
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
@@ -16,10 +16,6 @@ export default defineConfig({
 
   use: {
     baseURL: ENV.URL,
-
-    launchOptions: {
-      slowMo: 500,
-    },
 
     trace: "retain-on-failure",
     video: "retain-on-failure",
