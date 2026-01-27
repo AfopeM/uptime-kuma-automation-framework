@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test:env:start": "node scripts/start-test.js",
-    "test:setup": "playwright test tests/auth/setup.spec.ts"
+    "test:setup": "playwright test tests/auth/setup.spec.ts",
+    "test:login": "playwright test tests/auth/login.spec.ts"
   },
   "keywords": [],
   "author": "Afope Matilukuro",
