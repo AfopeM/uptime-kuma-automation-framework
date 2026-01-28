@@ -14,8 +14,12 @@ export default defineConfig({
 
   reporter: "html",
 
+  globalSetup: require.resolve("./tests/global-setup"),
+
   use: {
     baseURL: ENV.URL,
+
+    storageState: "storageState.json",
 
     trace: "retain-on-failure",
     video: "retain-on-failure",
