@@ -1,6 +1,5 @@
 import { BasePage } from "./base.page";
 import { expect } from "@playwright/test";
-import { ENV } from "../utils/config";
 
 export class SetupWizardPage extends BasePage {
   // Create variables and assign locators
@@ -18,6 +17,11 @@ export class SetupWizardPage extends BasePage {
     // Navigate to setup database URL
     await this.page.goto("/");
 
+    // Verify user is on setup database page
+    await expect(
+      this.page.getByText("Which database would you like to use?"),
+    ).toBeVisible();
+
     // 1. Click text
     await this.page.getByText("SQLite", { exact: true }).click();
 
@@ -25,11 +29,9 @@ export class SetupWizardPage extends BasePage {
     await this.page.getByRole("button", { name: "Next" }).click();
 
     // 3. Validate redirect to dashboard
-    const createAdminText = await this.page.getByText(
-      "Create your admin account",
-    );
-    await createAdminText.waitFor();
-    await expect(createAdminText).toBeVisible();
+    await expect(this.page.getByText("Create your admin account")).toBeVisible({
+      timeout: 30000,
+    });
 
     return this;
   }
