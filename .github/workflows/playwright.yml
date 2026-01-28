@@ -30,9 +30,6 @@ jobs:
       - name: Start Uptime Kuma
         run: npm run test:env:start
 
-      - name: Setup Test Environment
-        run: npm run test:setup
-
       - name: Run Playwright Test
         run: npx playwright test
 
